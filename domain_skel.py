@@ -105,7 +105,7 @@ if __name__ == '__main__':
         'escalateprivs':	True, # Needed for Cpanel category since it runs as the cPanel user
       }, {
         'category': 	    'Cpanel',
-        'event':			    'Api2::Subdomain::addsubdomain',
+        'event':			    'UAPI::SubDomain::addsubdomain',
         'stage':			    'post',
         'hook':				    hook_script,
         'exectype':			  'script',
