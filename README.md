@@ -9,14 +9,15 @@ This uses the [`Cpanel` category of hookable events](https://documentation.cpane
 Perform the following steps on your cPanel server as `root`.
 
 1. Clone this repo where you plan to keep your hooks (`/usr/local/cpanel/3rdparty/bin/` seems to be where they want it, but [some documents](https://documentation.cpanel.net/display/DD/Guide+to+Standardized+Hooks+-+The+describe%28%29+Method) seem to point elsewhere).
-2. Create a Python virtual environment for executing your script (`python -m venv <venv dir>`) -- it can be in the same directory where you cloned this repo.
+2. Change permissions to 0755 (`chmod 0755 domain_skel.py`).
+3. Create a Python virtual environment for executing your script (`python -m venv <venv dir>`) -- it can be in the same directory where you cloned this repo.
 4. Source your virtual environment (`source <venv dir>/bin/activate`).
 5. `cd` to the repo directory and install the requirements (`pip install -r requirements.txt`).
-3. Create a directory where you want to keep your skeleton files (we used `/root/keobi-domain-skel`) and upload any files.
-6. Update the `config.py` file -- specifically `PROJECT_NAME`, `LOG_FILE`, `HOOK_SCRIPT_DIR`, `PYTHON_EXE`, and `DOMAIN_SKEL_SKELDIR`.
-7. Update the [shebang (#!)](https://en.wikipedia.org/wiki/Shebang_(Unix)) line in the `domain_skel.py` to `<ven dir>/bin/python`.
-8. Register the hook: `/usr/local/cpanel/bin/manage_hooks add script <HOOK_SCRIPT_DIR>/domain_skel.py`
-9. Verify the hooks in WHM by logging into WHM and clicking "Manage Hooks" under "Development".
+6. Create a directory where you want to keep your skeleton files (we used `/root/keobi-domain-skel`) and upload any files.
+7. Update the `config.py` file -- specifically `PROJECT_NAME`, `LOG_FILE`, `HOOK_SCRIPT_DIR`, `PYTHON_EXE`, and `DOMAIN_SKEL_SKELDIR`.
+8. Update the [shebang (#!)](https://en.wikipedia.org/wiki/Shebang_(Unix)) line in the `domain_skel.py` to `<ven dir>/bin/python`.
+9. Register the hook: `/usr/local/cpanel/bin/manage_hooks add script <HOOK_SCRIPT_DIR>/domain_skel.py`
+10. Verify the hooks in WHM by logging into WHM and clicking "Manage Hooks" under "Development".
 
 You should be done! Test it out by creating an addon or subdomain.
 
